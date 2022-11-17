@@ -23,4 +23,4 @@ class Encryption:
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
-        fernet = Fernet()
+        fernet = Fernet(self.create_key(password))
