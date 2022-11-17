@@ -1,6 +1,7 @@
 import argparse, getpass
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
+from encryption import Encryption
 
 
 class Password(argparse.Action):
