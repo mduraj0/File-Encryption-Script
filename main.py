@@ -20,7 +20,7 @@ def file_name(value: str):
 
 def main(args):
     if args.mode == 'encrypt':
-        pass
+        Encryption
 
 
 if __name__ == '__main__':
