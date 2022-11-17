@@ -1,4 +1,5 @@
 import base64
+from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 from cryptography.hazmat.primitives import hashes
 
@@ -24,3 +25,4 @@ class Encryption:
             data_to_encrypt = file.read()
 
         fernet = Fernet(self.create_key(password))
+        encrypted_content = fernet.encrypt()
