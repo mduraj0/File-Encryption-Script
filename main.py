@@ -12,5 +12,8 @@ decrypt --- decrypt file
 append --- append text to encrypted file'''
 )
 
+group = parser.add_mutually_exclusive_group()
+group.add_argument('-f', '--file', action='append')
+
 args = parser.parse_args()
 print(args)
