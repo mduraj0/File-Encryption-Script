@@ -21,7 +21,7 @@ def file_name(value: str):
 def main(args):
     if args.mode == 'encrypt':
         action = Encryption('safe.txt')
-        action.execute()
+        action.execute('kacper1988')
 
 
 if __name__ == '__main__':
