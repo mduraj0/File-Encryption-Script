@@ -1,4 +1,5 @@
 import argparse, getpass
+import pathlib
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
 from encryption import Encryption
