@@ -25,4 +25,4 @@ class Encryption:
             data_to_encrypt = file.read()
 
         fernet = Fernet(self.create_key(password))
-        encrypted_content = fernet.encrypt()
+        encrypted_content = fernet.encrypt(data_to_encrypt.encode('utf-8'))
