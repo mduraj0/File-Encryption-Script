@@ -28,3 +28,4 @@ class Encryption:
         encrypted_content = fernet.encrypt(data_to_encrypt.encode('utf-8'))
 
         with open(self.path.rename(self.path.with_suffix('.dokodu')), 'w') as file:
+            file.write(encrypted_content.decode('utf-8'))
