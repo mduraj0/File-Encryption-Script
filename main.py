@@ -1,4 +1,15 @@
-import argparse
+import argparse, getpass
+from argparse import ArgumentParser, Namespace
+from typing import Sequence
+
+
+
+class Password(argparse.Action):
+    def __call__(self, parser, namespace, values, optional_string):
+        if values is None:
+            values = getpass.getpass()
+
+        setattr(namespace, self.dest, values)
 
 
 def file_name(value: str):
@@ -19,7 +30,12 @@ append --- append text to encrypted file'''
 )
 
 parser.add_argument(
-    '-p'
+    '-p',
+    '--password',
+    required=True,
+    nargs='?',
+    dest='password',
+    action=Password
 )
 
 parser.add_argument('-v', '--verbose', action='count', default=0)
