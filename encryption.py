@@ -19,7 +19,7 @@ class Encryption:
         key = base64.urlsafe_b64encode(kdf.derive(password.encode('utf-8')))
         return key
 
-    def execute(self):
+    def execute(self, password):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
