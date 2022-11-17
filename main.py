@@ -17,6 +17,9 @@ def file_name(value: str):
     raise argparse.ArgumentError()
 
 
+def main(args):
+    if args.mode == 'encrypt':
+        pass
 
 
 if __name__ == '__main__':
@@ -46,5 +49,4 @@ if __name__ == '__main__':
     group.add_argument('-d', '--dir', help='path to folder with file to process')
 
     args = parser.parse_args()
-    print(args)
-
+    main(args)
