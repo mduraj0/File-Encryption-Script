@@ -13,7 +13,7 @@ append --- append text to encrypted file'''
 )
 
 group = parser.add_mutually_exclusive_group()
-group.add_argument('-f', '--file', action='append')
+group.add_argument('-f', '--file', action='append', help='list of files to process.')
 
 args = parser.parse_args()
 print(args)
