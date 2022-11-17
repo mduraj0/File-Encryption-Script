@@ -9,7 +9,7 @@ class Encryption:
         self.path = path
 
     def create_key(self, password):
-        salt = b"\xda\x01\xsa\asdasd\vdsd\x2131\sadbsa"
+        salt = b"\\xda\\x01\\xsa\\asd-asd\\dsd\\x2131\xadbsa"
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
             length=32,
