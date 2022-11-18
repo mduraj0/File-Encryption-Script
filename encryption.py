@@ -8,6 +8,8 @@ class EncryptDecrypt:
     """Common data and function for encryption and decryption of file
     """
 
+
+class Encryption:
     def __init__(self, path):
         self.path = path
 
@@ -33,7 +35,3 @@ class EncryptDecrypt:
 
         with open(self.path.rename(self.path.with_suffix('.dokodu')), 'w') as file:
             file.write(encrypted_content.decode('utf-8'))
-
-
-class Encryption(EncryptDecrypt):
-    pass
