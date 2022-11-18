@@ -11,7 +11,8 @@ class EncryptDecrypt:
     def __init__(self, path):
         self.path = path
 
-    def create_key(self, password):
+    @staticmethod
+    def create_key(password):
         salt = b"\\xda\\x01\\xsa\\asd-asd\\dsd\\x2131\xadbsa"
         kdf = PBKDF2HMAC(
             algorithm=hashes.SHA256(),
