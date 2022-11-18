@@ -21,7 +21,7 @@ def file_name(value: str):
 
 def main(args):
     if args.mode == 'encrypt':
-        path = pathlib.Path('safe.txt')
+        path = pathlib.Path('new.txt')
         action = Encryption(path)
         action.execute('kacper1988')
 
