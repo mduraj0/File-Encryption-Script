@@ -9,6 +9,10 @@ class EncryptDecrypt:
     """
 
 
+class Decryption:
+    pass
+
+
 class Encryption:
     def __init__(self, path):
         self.path = path
