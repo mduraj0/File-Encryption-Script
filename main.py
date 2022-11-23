@@ -24,14 +24,19 @@ def file_name(value: str):
 def main(args):
     try:
         for file in args.file:
+            before = time()
             path = pathlib.Path(file)
             if args.mode == 'encrypt':
                 action = Encryption(path)
             elif args.mode == 'decrypt':
                 action = Decryption(path)
+
+            action.execute(args.password)
+            after = time()
             if args.verbose > 0:
                 print(file)
-            action.execute(args.password)
+                if args.verbose > 1:
+                    print(f'Time : {after - before}')
     except InvalidToken:
         print('Bad password!! ERROR')
 
