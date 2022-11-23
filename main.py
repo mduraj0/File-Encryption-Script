@@ -23,6 +23,7 @@ def file_name(value: str):
 def main(args):
     try:
         for file in args.file:
+            path = pathlib.Path(file)
             if args.mode == 'encrypt':
                 path = pathlib.Path(file)
                 action = Encryption(path)
