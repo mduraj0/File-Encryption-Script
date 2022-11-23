@@ -28,7 +28,7 @@ def main(args):
                 action = Encryption(path)
             elif args.mode == 'decrypt':
                 action = Decryption(path)
-                action.execute(args.password)
+            action.execute(args.password)
     except InvalidToken:
         print('Bad password!! ERROR')
 
