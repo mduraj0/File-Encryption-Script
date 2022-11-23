@@ -8,6 +8,8 @@ class EncryptDecrypt:
     """Common data and function for encryption and decryption of file
     """
 
+    verbosity = 0
+
     def __init__(self, path):
         self.path = path
 
