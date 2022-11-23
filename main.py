@@ -21,11 +21,11 @@ def file_name(value: str):
 
 def main(args):
     if args.mode == 'encrypt':
-        path = pathlib.Path('new.txt')
+        path = pathlib.Path('safe.txt')
         action = Encryption(path)
         action.execute('kacper1988')
     elif args.mode == 'decrypt':
-        path = pathlib.Path('new.txt')
+        path = pathlib.Path('safe.dokodu')
         action = Decryption(path)
         action.execute('kacper1988')
 
