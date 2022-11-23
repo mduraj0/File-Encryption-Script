@@ -29,7 +29,7 @@ class Decryption(EncryptDecrypt):
     pass
 
 
-class Encryption:
+class Encryption(EncryptDecrypt):
 
     def execute(self, password):
         with open(self.path, 'r') as file:
