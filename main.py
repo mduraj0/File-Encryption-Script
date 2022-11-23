@@ -25,7 +25,7 @@ def file_name(value: str):
 def main(args):
     try:
         if args.verbose >= 3:
-            file_to_process = args.file
+            file_to_process = tqdm(args.file)
 
         for file in file_to_process:
             before = time()
