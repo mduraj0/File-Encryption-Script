@@ -20,14 +20,16 @@ def file_name(value: str):
 
 
 def main(args):
-    if args.mode == 'encrypt':
-        path = pathlib.Path('safe.txt')
-        action = Encryption(path)
-        action.execute('kacper1988')
-    elif args.mode == 'decrypt':
-        path = pathlib.Path('safe.dokodu')
-        action = Decryption(path)
-        action.execute('kacper1988')
+    for file in args.file:
+
+        if args.mode == 'encrypt':
+            path = pathlib.Path(file)
+            action = Encryption(path)
+            action.execute(args.password)
+        elif args.mode == 'decrypt':
+            path = pathlib.Path(file)
+            action = Decryption(path)
+            action.execute(args.password)
 
 
 if __name__ == '__main__':
