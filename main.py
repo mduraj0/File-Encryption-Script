@@ -3,6 +3,7 @@ import pathlib
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
 from encryption import Encryption, Decryption
+from cryptography.fernet import InvalidToken
 
 
 class Password(argparse.Action):
