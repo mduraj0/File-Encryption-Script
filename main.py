@@ -2,7 +2,7 @@ import argparse, getpass
 import pathlib
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
-from encryption import Encryption
+from encryption import Encryption, Decryption
 
 
 class Password(argparse.Action):
@@ -23,6 +23,10 @@ def main(args):
     if args.mode == 'encrypt':
         path = pathlib.Path('new.txt')
         action = Encryption(path)
+        action.execute('kacper1988')
+    elif args.mode == 'decrypt':
+        path = pathlib.Path('new.txt')
+        action = Decryption(path)
         action.execute('kacper1988')
 
 
