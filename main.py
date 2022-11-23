@@ -23,7 +23,10 @@ def file_name(value: str):
 
 def main(args):
     try:
-        for file in args.file:
+        if args.verbose >= 3:
+            file_to_process = args.file
+
+        for file in file_to_process:
             before = time()
             path = pathlib.Path(file)
             if args.mode == 'encrypt':
@@ -33,10 +36,11 @@ def main(args):
 
             action.execute(args.password)
             after = time()
-            if args.verbose > 0:
+            if args.verbose > 0 and args.verbose <= 2:
                 print(file, end= ' ')
                 if args.verbose > 1:
                     print(f'Time : {after - before}')
+                print()
     except InvalidToken:
         print('Bad password!! ERROR')
 
