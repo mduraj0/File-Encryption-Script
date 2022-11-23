@@ -25,7 +25,7 @@ class EncryptDecrypt:
         return key
 
 
-class Decryption:
+class Decryption(EncryptDecrypt):
     pass
 
 
