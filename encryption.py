@@ -30,8 +30,9 @@ class Decryption(EncryptDecrypt):
     def execute(self, password):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
+
         fernet = Fernet(self.create_key(password))
-        encrypted_content = fernet.encrypt(data_to_encrypt.encode('utf-8'))
+        encrypted_content = fernet.decrypt(data_to_encrypt.encode('utf-8'))
 
 
 class Encryption(EncryptDecrypt):
