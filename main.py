@@ -5,6 +5,7 @@ from typing import Sequence
 from encryption import Encryption, Decryption
 from cryptography.fernet import InvalidToken
 from time import time
+from tqdm
 
 
 class Password(argparse.Action):
