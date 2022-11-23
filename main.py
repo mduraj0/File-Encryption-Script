@@ -34,7 +34,7 @@ def main(args):
             action.execute(args.password)
             after = time()
             if args.verbose > 0:
-                print(file)
+                print(file, end= ' ')
                 if args.verbose > 1:
                     print(f'Time : {after - before}')
     except InvalidToken:
