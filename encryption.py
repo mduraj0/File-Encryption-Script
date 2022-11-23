@@ -8,6 +8,22 @@ class EncryptDecrypt:
     """Common data and function for encryption and decryption of file
     """
 
+    def __init__(self, path):
+        self.path = path
+
+    @staticmethod
+    def create_key(password):
+        salt = b"\\xda\\x01\\xsa\\asd-asd\\dsd\\x2131\xadbsa"
+        kdf = PBKDF2HMAC(
+            algorithm=hashes.SHA256(),
+            length=32,
+            salt=salt,
+            iterations=390000
+        )
+
+        key = base64.urlsafe_b64encode(kdf.derive(password.encode('utf-8')))
+        return key
+
 
 class Decryption:
     pass
