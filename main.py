@@ -14,7 +14,7 @@ class Password(argparse.Action):
 
 
 def file_name(value: str):
-    if value.endswith('.txt'):
+    if value.endswith(('.txt', '.dokodu')):
         return value
     raise argparse.ArgumentError()
 
