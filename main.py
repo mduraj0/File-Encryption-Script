@@ -4,6 +4,7 @@ from argparse import ArgumentParser, Namespace
 from typing import Sequence
 from encryption import Encryption, Decryption
 from cryptography.fernet import InvalidToken
+from time import time
 
 
 class Password(argparse.Action):
