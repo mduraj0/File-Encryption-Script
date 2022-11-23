@@ -25,11 +25,8 @@ def main(args):
         for file in args.file:
             path = pathlib.Path(file)
             if args.mode == 'encrypt':
-                path = pathlib.Path(file)
                 action = Encryption(path)
-                action.execute(args.password)
             elif args.mode == 'decrypt':
-                path = pathlib.Path(file)
                 action = Decryption(path)
                 action.execute(args.password)
     except InvalidToken:
