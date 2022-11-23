@@ -43,6 +43,9 @@ def main(args):
                 if args.verbose > 1:
                     print(f'Time : {after - before}')
                 print()
+
+            if args.verbose >= 3:
+                file_to_process.set_description(file)
     except InvalidToken:
         print('Bad password!! ERROR')
 
