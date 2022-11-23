@@ -34,6 +34,9 @@ class Decryption(EncryptDecrypt):
         fernet = Fernet(self.create_key(password))
         encrypted_content = fernet.decrypt(data_to_encrypt.encode('utf-8'))
 
+        with open(self.path.rename(self.path.with_suffix('.txt')), 'w') as file:
+            file.write(encrypted_content.decode('utf-8'))
+
 
 class Encryption(EncryptDecrypt):
 
