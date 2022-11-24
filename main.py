@@ -2,7 +2,7 @@ import argparse, getpass
 import pathlib
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
-from encryption import Encryption, Decryption
+from encryption import Encryption, Decryption, Append
 from cryptography.fernet import InvalidToken
 from time import time
 from tqdm import tqdm
@@ -35,6 +35,9 @@ def main(args):
                 action = Encryption(path)
             elif args.mode == 'decrypt':
                 action = Decryption(path)
+            elif args.mode == 'append':
+                text = input('What you want to append to file?')
+                action = Append(path, text)
 
             action.execute(args.password)
             after = time()
