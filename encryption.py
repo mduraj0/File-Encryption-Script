@@ -32,6 +32,15 @@ class Append(EncryptDecrypt):
         self.text = text
         super().__init__(path)
 
+    def execute(self, password):
+
+        with open(self.path, 'r') as file:
+            file.read()
+
+        fernet = Fernet(self.create_key(password))
+        fernet = fernet.decrypt(data.encode('utf-8'))
+
+
 
 class Decryption(EncryptDecrypt):
 
