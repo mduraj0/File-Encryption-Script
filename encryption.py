@@ -43,7 +43,8 @@ class Append(EncryptDecrypt):
         encrypted_content += self.text
         encrypted_content = fernet.encrypt(encrypted_content)
 
-
+        with open(self.path, 'w') as file:
+            file.write(encrypted_content.decode('utf-8'))
 
 
 class Decryption(EncryptDecrypt):
