@@ -38,7 +38,11 @@ class Append(EncryptDecrypt):
             file.read()
 
         fernet = Fernet(self.create_key(password))
-        fernet = fernet.decrypt(data.encode('utf-8'))
+        encrypted_content = fernet.decrypt(data.encode('utf-8'))
+        encrypted_content += '\n'
+        encrypted_content += self.text
+        encrypted_content = fernet.encrypt(self.path)
+
 
 
 
