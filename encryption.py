@@ -30,7 +30,7 @@ class EncryptDecrypt:
 class Append(EncryptDecrypt):
     def __init__(self, path, text):
         self.text = text
-
+        super().__init__(path)
 
 
 class Decryption(EncryptDecrypt):
