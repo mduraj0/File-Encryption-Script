@@ -58,7 +58,7 @@ if __name__ == '__main__':
         choices=['encrypt', 'decrypt', 'append'],
         required=True,
         help='''encrypt --- encrypt file
-    \ndecrypt --- decrypt file
+    decrypt --- decrypt file
     append --- append text to encrypted file'''
     )
 
