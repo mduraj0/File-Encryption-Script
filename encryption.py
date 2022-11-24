@@ -27,6 +27,12 @@ class EncryptDecrypt:
         return key
 
 
+class Append(EncryptDecrypt):
+    def __init__(self, path, text):
+        self.text = text
+
+
+
 class Decryption(EncryptDecrypt):
 
     def execute(self, password):
