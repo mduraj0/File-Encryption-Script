@@ -39,7 +39,7 @@ def main(args):
             action.execute(args.password)
             after = time()
             if 0 < args.verbose <= 2:
-                print(file, end= ' ')
+                print(file, end=' ')
                 if args.verbose > 1:
                     print(f'Time : {after - before}')
                 print()
@@ -58,7 +58,7 @@ if __name__ == '__main__':
         choices=['encrypt', 'decrypt', 'append'],
         required=True,
         help='''encrypt --- encrypt file
-    decrypt --- decrypt file
+    \ndecrypt --- decrypt file
     append --- append text to encrypted file'''
     )
 
