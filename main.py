@@ -38,7 +38,7 @@ def main(args):
 
             action.execute(args.password)
             after = time()
-            if args.verbose > 0 and args.verbose <= 2:
+            if 0 < args.verbose <= 2:
                 print(file, end= ' ')
                 if args.verbose > 1:
                     print(f'Time : {after - before}')
