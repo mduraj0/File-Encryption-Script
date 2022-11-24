@@ -29,17 +29,17 @@ class EncryptDecrypt:
 
 class Append(EncryptDecrypt):
     def __init__(self, path, text):
-        self.text = text
+        self.text = text.encode('utf-8')
         super().__init__(path)
 
     def execute(self, password):
 
         with open(self.path, 'r') as file:
-            file.read()
+            data = file.read()
 
         fernet = Fernet(self.create_key(password))
         encrypted_content = fernet.decrypt(data.encode('utf-8'))
-        encrypted_content += '\n'
+        # encrypted_content += '\n'
         encrypted_content += self.text
         encrypted_content = fernet.encrypt(encrypted_content)
 
