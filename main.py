@@ -23,21 +23,25 @@ def file_name(value: str):
     raise argparse.ArgumentError()
 
 
+def list_files_in_directory(dirname: str):
+    file_to_process = []
+    for path, dirs, files in walk(args.dir):
+        for file in files:
+            if file.endswith(('.txt', '.dokodu')):
+                file_to_process.append(f'{path}\{file}')
+
+    return file_to_process
+
+
 def main(args):
     try:
         if args.dir:
-            file_to_process = []
-            for path, dirs, files in walk(args.dir):
-                for file in files:
-                    if file.endswith(('.txt', '.dokodu')):
-                        file_to_process.append(f'{path}\{file}')
-            return file_to_process
-
+            file_to_process = list_files_in_directory(args.dir)
         elif args.file:
             file_to_process = args.file
         else:
             raise argparse.ArgumentError()
-        file_to_process = args.file
+
         if args.verbose >= 3:
             file_to_process = tqdm(args.file)
 
@@ -64,6 +68,8 @@ def main(args):
                 file_to_process.set_description(file)
     except InvalidToken:
         print('Bad password!! ERROR')
+    except argparse.ArgumentError:
+        print('Bad file or dir name!! ERRORR')
 
 
 if __name__ == '__main__':
