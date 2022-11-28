@@ -66,7 +66,7 @@ class Decryption(EncryptDecrypt, Thread):
             file.write(encrypted_content.decode('utf-8'))
 
 
-class Encryption(EncryptDecrypt):
+class Encryption(EncryptDecrypt, Thread):
     def __init__(self, path, password):
         self.password = password
         EncryptDecrypt.__init__(self, path=path, password=password)
