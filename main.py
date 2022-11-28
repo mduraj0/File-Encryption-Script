@@ -1,5 +1,6 @@
 import argparse, getpass
 import pathlib
+from os import walk
 from argparse import ArgumentParser, Namespace
 from typing import Sequence
 from encryption import Encryption, Decryption, Append
