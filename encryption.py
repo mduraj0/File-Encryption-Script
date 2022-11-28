@@ -67,6 +67,10 @@ class Decryption(EncryptDecrypt, Thread):
 
 
 class Encryption(EncryptDecrypt):
+    def __init__(self, path, password):
+        self.password = password
+        EncryptDecrypt.__init__(self, path=path, password=password)
+        Thread.__init__(self)
 
     def run(self):
         with open(self.path, 'r') as file:
