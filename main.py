@@ -24,6 +24,9 @@ def file_name(value: str):
 
 def main(args):
     try:
+        if args.dir:
+
+
         file_to_process = args.file
         if args.verbose >= 3:
             file_to_process = tqdm(args.file)
