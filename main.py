@@ -45,6 +45,8 @@ def main(args):
         if args.verbose >= 3:
             file_to_process = tqdm(args.file)
 
+        actions = []
+
         for file in file_to_process:
             before = time()
             path = pathlib.Path(file)
@@ -56,8 +58,10 @@ def main(args):
                 text = input('What you want to append to file?')
                 action = Append(path, args.password, text)
 
-            action.start()
+            actions.append(action)
+
             after = time()
+
             if 0 < args.verbose <= 2:
                 print(file, end=' ')
                 if args.verbose > 1:
@@ -66,6 +70,13 @@ def main(args):
 
             if args.verbose >= 3:
                 file_to_process.set_description(file)
+
+            for action in actions:
+                action.start()
+
+            for action in actions:
+                action.join()
+
     except InvalidToken:
         print('Bad password!! ERROR')
     except argparse.ArgumentError:
