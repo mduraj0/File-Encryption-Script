@@ -95,7 +95,10 @@ if __name__ == '__main__':
 
     parser.add_argument('-v', '--verbose', action='count', default=0)
     group = parser.add_mutually_exclusive_group()
-    group.add_argument('-f', '--file', action='append', type=file_name, help='list of files to process.')
+    group.add_argument('-f', '--file',
+                       action='append',
+                       type=file_name,
+                       help='list of files to process.')
     group.add_argument('-d', '--dir', help='path to folder with file to process')
 
     args = parser.parse_args()
