@@ -10,8 +10,9 @@ class EncryptDecrypt:
 
     verbosity = 0
 
-    def __init__(self, path):
+    def __init__(self, path, password):
         self.path = path
+
 
     @staticmethod
     def create_key(password):
@@ -32,7 +33,7 @@ class Append(EncryptDecrypt):
         self.text = text.encode('utf-8')
         super().__init__(path)
 
-    def execute(self, password):
+    def start(self):
 
         with open(self.path, 'r') as file:
             data = file.read()
@@ -49,7 +50,7 @@ class Append(EncryptDecrypt):
 
 class Decryption(EncryptDecrypt):
 
-    def execute(self, password):
+    def start(self):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
@@ -62,7 +63,7 @@ class Decryption(EncryptDecrypt):
 
 class Encryption(EncryptDecrypt):
 
-    def execute(self, password):
+    def start(self):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 

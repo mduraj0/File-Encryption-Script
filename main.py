@@ -49,14 +49,14 @@ def main(args):
             before = time()
             path = pathlib.Path(file)
             if args.mode == 'encrypt':
-                action = Encryption(path)
+                action = Encryption(path, args.password)
             elif args.mode == 'decrypt':
-                action = Decryption(path)
+                action = Decryption(path, args.password)
             elif args.mode == 'append':
                 text = input('What you want to append to file?')
-                action = Append(path, text)
+                action = Append(path, args.password, text)
 
-            action.execute(args.password)
+            action.start()
             after = time()
             if 0 < args.verbose <= 2:
                 print(file, end=' ')
