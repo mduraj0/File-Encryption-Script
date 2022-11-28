@@ -31,7 +31,8 @@ def main(args):
                 for file in files:
                     if file.endswith(('.txt', '.dokodu')):
                         file_to_process.append(f'{path}\{file}')
-            quit()
+            return file_to_process
+
         elif args.file:
             file_to_process = args.file
         else:
