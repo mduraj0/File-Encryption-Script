@@ -49,7 +49,11 @@ class Append(EncryptDecrypt):
             file.write(encrypted_content.decode('utf-8'))
 
 
-class Decryption(EncryptDecrypt):
+class Decryption(EncryptDecrypt, Thread):
+    def __init__(self, path, password):
+        self.password = password
+        EncryptDecrypt.__init__(self, path=path, password=password)
+        Thread.__init__(self)
 
     def run(self):
         with open(self.path, 'r') as file:
