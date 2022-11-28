@@ -71,11 +71,11 @@ def main(args):
             if args.verbose >= 3:
                 file_to_process.set_description(file)
 
-            for action in actions:
-                action.start()
+        for action in actions:
+            action.start()
 
-            for action in actions:
-                action.join()
+        for action in actions:
+            action.join()
 
     except InvalidToken:
         print('Bad password!! ERROR')
