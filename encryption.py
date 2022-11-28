@@ -12,7 +12,7 @@ class EncryptDecrypt:
 
     def __init__(self, path, password):
         self.path = path
-
+        self.password = password
 
     @staticmethod
     def create_key(password):
@@ -29,16 +29,16 @@ class EncryptDecrypt:
 
 
 class Append(EncryptDecrypt):
-    def __init__(self, path, text):
+    def __init__(self, path, password, text):
         self.text = text.encode('utf-8')
-        super().__init__(path)
+        super().__init__(path, password)
 
     def start(self):
 
         with open(self.path, 'r') as file:
             data = file.read()
 
-        fernet = Fernet(self.create_key(password))
+        fernet = Fernet(self.create_key(self.password))
         encrypted_content = fernet.decrypt(data.encode('utf-8'))
         # encrypted_content += '\n'
         encrypted_content += self.text
@@ -54,7 +54,7 @@ class Decryption(EncryptDecrypt):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
-        fernet = Fernet(self.create_key(password))
+        fernet = Fernet(self.create_key(self.password))
         encrypted_content = fernet.decrypt(data_to_encrypt.encode('utf-8'))
 
         with open(self.path.rename(self.path.with_suffix('.txt')), 'w') as file:
@@ -67,7 +67,7 @@ class Encryption(EncryptDecrypt):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
-        fernet = Fernet(self.create_key(password))
+        fernet = Fernet(self.create_key(self.password))
         encrypted_content = fernet.encrypt(data_to_encrypt.encode('utf-8'))
 
         with open(self.path.rename(self.path.with_suffix('.dokodu')), 'w') as file:
