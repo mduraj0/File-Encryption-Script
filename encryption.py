@@ -34,7 +34,7 @@ class Append(EncryptDecrypt):
         self.text = text.encode('utf-8')
         super().__init__(path, password)
 
-    def start(self):
+    def run(self):
 
         with open(self.path, 'r') as file:
             data = file.read()
@@ -51,7 +51,7 @@ class Append(EncryptDecrypt):
 
 class Decryption(EncryptDecrypt):
 
-    def start(self):
+    def run(self):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
@@ -64,7 +64,7 @@ class Decryption(EncryptDecrypt):
 
 class Encryption(EncryptDecrypt):
 
-    def start(self):
+    def run(self):
         with open(self.path, 'r') as file:
             data_to_encrypt = file.read()
 
