@@ -25,6 +25,7 @@ def file_name(value: str):
 def main(args):
     try:
         if args.dir:
+            files_to_process = []
 
 
         file_to_process = args.file
