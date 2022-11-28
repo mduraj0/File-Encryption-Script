@@ -26,9 +26,16 @@ def file_name(value: str):
 def main(args):
     try:
         if args.dir:
-            files_to_process = []
-
-
+            file_to_process = []
+            for path, dirs, files in walk(args.dir):
+                for file in files:
+                    if file.endswith(('.txt', '.dokodu')):
+                        file_to_process.append(f'{path}\{file}')
+            quit()
+        elif args.file:
+            file_to_process = args.file
+        else:
+            raise argparse.ArgumentError()
         file_to_process = args.file
         if args.verbose >= 3:
             file_to_process = tqdm(args.file)
